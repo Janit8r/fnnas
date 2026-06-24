@@ -1006,6 +1006,7 @@ refactor_bootfs() {
         sed -i \
             -e "s|\\(fdtfile=.*\\/\\)[^/]*$|\\1${FDTFILE}|g" \
             -e "s|^kernelfile=.*|kernelfile=vmlinuz-${kernel_name}|g" \
+            -e "s|^initrdfile=.*|initrdfile=uInitrd-${kernel_name}|g" \
             "${fnenv_conf_file}"
         [[ "${PLATFORM}" =~ ^(allwinner|amlogic)$ ]] && {
             sed -i \
